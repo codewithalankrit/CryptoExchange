@@ -4,7 +4,6 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/coin-stock-oasis-landing-main/" : "/",
   server: {
     host: "::",
     port: 8080,

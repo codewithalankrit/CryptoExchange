@@ -2,27 +2,43 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Careers from "./pages/Careers";
+import HelpCenter from "./pages/HelpCenter";
+import ContactUs from "./pages/ContactUs";
+import Status from "./pages/Status";
+import Stocks from "./pages/Stocks";
+import Crypto from "./pages/Crypto";
+import Commodities from "./pages/Commodities";
+import Forex from "./pages/Forex";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
-
-const TestPage = () => (
-  <div style={{ padding: "20px", color: "white", background: "black" }}>
-    <h1>Test Page</h1>
-    <p>If you can see this, the app is working!</p>
-  </div>
-);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<TestPage />} />
+          <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/help" element={<HelpCenter />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/status" element={<Status />} />
+          <Route path="/stocks" element={<Stocks />} />
+          <Route path="/crypto" element={<Crypto />} />
+          <Route path="/commodities" element={<Commodities />} />
+          <Route path="/forex" element={<Forex />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
